@@ -1,0 +1,45 @@
+.outline_item {
+	margin-bottom: 20px;	
+}
+
+.view_more_button {
+	color: lightblue;
+	cursor: pointer;
+	
+}
+
+.free_forum_table {
+	border-collapse: collapse;
+	width: 98%;
+	margin: 0px 5px;
+}
+
+.free_forum_table th, td {
+	text-align: center;
+}
+
+.free_forum_header {
+	border-bottom: 1px solid lightgray;
+}
+
+.free_forum_item {
+	cursor: pointer;
+	border-bottom: 1px solid lightgray;
+}
+
+.free_forum_item:hover {
+	background-color: aliceblue;
+}
+
+.td_click_count {
+	text-align: center;
+	width: 10%;
+}
+
+.td_forum_title {
+	
+}
+
+.td_upload_time {
+	width: 30%;
+}

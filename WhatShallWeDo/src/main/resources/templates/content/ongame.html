@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+      
+	<title>오늘뭐하지</title>
+	
+    <!--/* css */-->
+    <link th:href="@{/css/common.css}" rel="stylesheet" />
+    <link th:href="@{/css/ongame.css}" rel="stylesheet" />
+    <body>
+        <th:block layout:fragment="header" th:include="@{fragments/header}"></th:block>
+		
+		<div id="flexbody">
+        <th:block layout:fragment="content">
+        <div class="content">
+        	<h2>온라인 게임</h2>
+        	<hr>
+        	<div>
+        		<table>
+        			<tr>
+        				<th>인원수</th>
+        				<td>
+        					<input size="5"> ~ <input size="5">
+        				</td>
+        				<td rowspan="2">
+        					<div style="vertical-align: middle;">
+        						<button>조회</button>
+        					</div>
+        					
+        				</td>
+        			</tr>
+        			<tr>
+        				<th>태그</th>
+        				<td style="max-width:1200px;" id="tag_buttons">
+<script th:inline="javascript">
+	fetch('/api/tags').then(response => {
+		if (response.ok) {
+			return response.json();
+		}
+	}).then(json => {
+		let html = '';
+		
+		if (json.length) {
+			json.forEach((obj, idx) => {
+				html += `
+					<button class="tag_button" id="${obj.tid}" onclick="tag_button_clicked($(this))">${obj.name}</button>
+					`;
+			});
+		}
+		
+		html += '<a href="#tag_addition_modal" rel="modal:open"><button id="tag_addition_button">+</button></a>';
+		
+		$("#tag_buttons").html(html);
+	});
+	
+	
+</script>
+        				</td>
+        			</tr>
+        		</table>
+        	</div>
+        	<hr>
+        	
+        	<div class="thumb_container">
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+        		<div class="thumb_box">
+        			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+        			<div class="thumb_title"><span>title_test</span></div>
+        		</div>
+            </div>
+        </div>
+        </th:block>
+        
+        <th:block layout:fragment="right_pannel" th:include="@{fragments/right_pannel}"></th:block>
+		</div>
+        
+        <th:block layout:fragment="footer" th:include="@{fragments/footer}"></th:block>	
+    </body>
+</html>
+
+<div id="tag_addition_modal" class="modal">
+	<span> 태그 이름 : </span><input name="name">
+	<button id="tag_addition_submit">확인</button>
+	<a href="#" rel="modal:close"><button id="tag_addition_cancel">취소</button></a>
+</div>
+
+<script th:inline="javascript">
+
+	$(document).on("click", "#tag_addition_submit", () => {
+		const params = {
+			name: $("#tag_addition_modal input[name='name']").val()
+		};
+		
+		if (params.name != '') {
+			fetch('/api/tags', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(params)
+			}).then(response => {
+				if (!response.ok) {
+					throw new Error('Request failed');
+				}
+				
+				alert('저장되었습니다.');
+				window.location = "/ongame";
+				
+			}).catch(error => {
+				alert(error);
+			});
+		}
+		else {
+			window.location = "/ongame";
+		}
+	});
+	
+	function tag_button_clicked($this) {
+		
+		const id = $this.attr("id");
+		
+		console.log(id);
+		
+		if ( !confirm($this.text() + ' 태그를 삭제하시겠습니까?') ) {
+			return false;
+		}
+		
+		fetch(`/api/tags/${id}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}).then(response => {
+			if (!response.ok) {
+				throw new Error('Request failed');
+			}
+			
+			alert('삭제되었습니다.');
+			window.location = "/ongame";
+			
+		}).catch(error => {
+			alert(error);
+		});
+	}
+
+</script>

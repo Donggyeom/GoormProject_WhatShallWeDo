@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+    
+	<title>오늘뭐하지</title>
+	
+    <!--/* css */-->
+    <link th:href="@{css/common.css}" rel="stylesheet" />
+    <link th:href="@{css/home.css}" rel="stylesheet" />
+    <body>
+        <th:block layout:fragment="header" th:include="@{fragments/header}"></th:block>
+		
+		<div id="flexbody">
+        <th:block layout:fragment="content">
+        <div class="content outline">
+            <div id="outline_onlinegame" class="outline_item">
+            	<h2>온라인 게임</h2>
+            	<hr>
+            	<div class="thumb_container">
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            	</div>
+            </div>
+            <div id="outline_offlinegame" class="outline_item">
+            	<h2>오프라인 게임</h2>
+            	<hr>
+            	<div class="thumb_container">
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            	</div>
+            </div>
+            <div id="outline_gallery" class="outline_item">
+            	<h2>갤러리</h2>
+            	<hr>
+            	<div class="thumb_container">
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_testtitle_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            		<div class="thumb_box">
+            			<img class="thumbnails"th:src="@{image/thumb_test.jpg}">
+            			<div class="thumb_title"><span>title_test</span></div>
+            		</div>
+            	</div>
+            </div>
+            <div id="outline_freeboard" class="outline_item">
+            	<h2>자유게시판 <span class="view_more_button">+</span></h2>
+            	<hr>
+            	<table class="free_forum_table">
+            		<tr class="free_forum_header">
+						<th class="td_click_count">조회수</td>
+            			<th class="td_forum_title">제목</td>
+            			<th class="td_upload_time">시간</td>
+            		</tr>
+            		<tr class="free_forum_item">
+						<td class="td_click_count">2</td>
+            			<td class="td_forum_title">asdfasd</td>
+            			<td class="td_upload_time">1시간 전</td>
+            		</tr>
+            		<tr class="free_forum_item">
+						<td class="td_click_count">2</td>
+            			<td class="td_forum_title">asdfasd</td>
+            			<td class="td_upload_time">2022-10-13</td>
+            		</tr>
+            	</table>
+            </div>
+        </div>
+        </th:block>
+        <th:block layout:fragment="right_pannel" th:include="@{fragments/right_pannel}"></th:block>
+		</div>
+        
+       
+        
+        <th:block layout:fragment="footer" th:include="@{fragments/footer}"></th:block>	
+    </body>
+</html>
